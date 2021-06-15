@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div style=" display: block;
+  margin-left: auto;
+  width: 75%;">
+
+	<!--		<div class="row my-5">-->
+	<!--			<div class="list-group list-group-flush col-5">-->
+	<!--				<a class="list-group-item list-group-item-action" href="#" th:href="@{/manager/category-form}">Manage Category</a>-->
+	<!--				<a class="list-group-item list-group-item-action" href="#" th:href="@{/manager/product-form}">Manage Product</a>-->
+	<!--			</div>-->
+
+
+<br>
+<br>
+
+	<div class="col-sm-4" th:each="item : ${itemList}">
+		<form th:action="@{'/shop/purchase/'+ ${item.itemId}}" method="post">
+		<div class="card mt-4">
+			<img th:src="${item.image}" class="card-img"  >
+		</div>
+			<div class="card-body">
+				<p th:text="${item.itemName}" class="card-text"></p>
+				<p th:text="${item.itemDescription}" class="card-text"></p>
+				<p th:text="'$ '+${item.itemPrice}" class="card-text"></p>
+
+
+
+
+				<div th:if="${currentuser} == ${#authentication.getName()}"> <h2><a class="nav-link" href="#" th:href="@{/shop/index}">Cofnij</a></h2> </div>
+				<div th:if="${currentuser} != ${#authentication.getName()}"><div class="form-actions" style="margin-top: 12px;"><button  type="submit" class="btn btn-success">KUP</button>
+					<</div></div></div> </form> </div>
+
+<br>
+
+</body>
+</html>

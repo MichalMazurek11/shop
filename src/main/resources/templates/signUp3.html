@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="myDiv">
+
+                <form th:action="@{/signup}"   method="post">
+                        <br>
+                        Login: <input type="text"  id="email" name="email" placeholder="email"><br>
+                        Password: <input type="password"  id="password" name="password" placeholder="Password"><br>
+                        State: <input type="text"  id="state" name="state" placeholder="State"><br>
+                        City: <input type="text"  id="city" name="city" placeholder="city"><br>
+                        adress: <input type="text"  id="adress" name="adress" placeholder="adress"><br>
+<!--                        createdDate: <input type="date"  id="createdDate" name="createdDate" placeholder="createdDate"><br>-->
+
+<!--                    <input type="hidden" class="form-control" id="accountStatus" name="Status" th:value="AKTYWNE">-->
+<!--                    <input type="hidden" class="form-control" id="type" name="type" th:value="USER">-->
+                    <button id="button"  type="submit" >Sign Up</button>
+                    <button>  <a th:href="@{/login}">Log in</a></button>
+                </form>
+</div>
+</body>
+</html>

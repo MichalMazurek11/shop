@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="container">
+
+	<!--		<div class="row my-5">-->
+	<!--			<div class="list-group list-group-flush col-5">-->
+	<!--				<a class="list-group-item list-group-item-action" href="#" th:href="@{/manager/category-form}">Manage Category</a>-->
+	<!--				<a class="list-group-item list-group-item-action" href="#" th:href="@{/manager/product-form}">Manage Product</a>-->
+	<!--			</div>-->
+</div>
+
+<table class="table my-3" th:href="@{'/shop/my-auction'}">
+	<thead>
+	<tr>
+		<th scope="col">Image</th>
+		<th scope="col">Product Name</th>
+		<th scope="col">Description</th>
+		<th scope="col">Price</th>
+		<th scope="col">Action</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="item : ${itemList}">
+		<td><img th:src="${item.image}" width="100px"></td>
+		<td th:text="${item.itemName}"></td>
+		<td th:text="${item.itemDescription}"></td>
+		<td th:text="${item.itemPrice}"></td>
+		<td>
+			<!--<a href="#" th:href="@{'/shop/updateItem/'+ ${item.itemId}}" class="btn btn-danger">Update</a>-->
+			<a href="#" th:href="@{'/shop/deleteItem/'+ ${item.itemId}}" class="btn btn-danger">Delete</a>
+		</td>
+	</tr>
+
+	</tbody>
+</table>
+
+
+</div>
+
+</body>
+</html>

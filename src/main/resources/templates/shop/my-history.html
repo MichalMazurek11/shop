@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="container">
+
+	<!--		<div class="row my-5">-->
+	<!--			<div class="list-group list-group-flush col-5">-->
+	<!--				<a class="list-group-item list-group-item-action" href="#" th:href="@{/manager/category-form}">Manage Category</a>-->
+	<!--				<a class="list-group-item list-group-item-action" href="#" th:href="@{/manager/product-form}">Manage Product</a>-->
+	<!--			</div>-->
+</div>
+
+
+<table class="table my-1" th:href="@{'/shop/my-history'}">
+	<thead>
+	<tr>
+		<th scope="col">Data zakupu</th>
+		<th scope="col">Cena</th>
+		<th scope="col">Nazwa przedmiotu</th>
+		<th scope="col">Kto wystawił</th>
+		<th scope="col">Ocena</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="item : ${auctionItem}">
+		<td th:text="${item.timeBought}"></td>
+		<td th:text="${item.price}"></td>
+		<td><img th:src="${item.auctionItem.image}" width="100px"  th:text="${item.auctionItem.itemName}">
+		<td th:text="${item.user.email}"></td>
+
+		<td>
+				<form th:action="@{'/shop/rate-auction/'+ ${item.auctionId}}"  method="post">
+					<fieldset>
+						<select name="rateTransaction">
+							<option th:each="rateInteager : ${rateInteagerList}"
+									th:text="${rateInteager}"/>
+						</select>
+
+						<div class="form-actions" style="margin-top: 12px;">
+							<button type="submit" class="btn btn-success">Oceń</button></div>
+					</fieldset>
+				</form>
+		</td>
+
+	</tr>
+
+	</tbody>
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <link th:href="@{/css/login.css}" rel="stylesheet" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="myDiv">-->
+
+<!--                <form th:action="@{/signup}"   method="post">-->
+<!--                        <br>-->
+<!--                        Login: <input type="text"  id="email" name="email" placeholder="email"><br>-->
+<!--                        Password: <input type="password"  id="password" name="password" placeholder="Password"><br>-->
+<!--                        State: <input type="text"  id="state" name="state" placeholder="State"><br>-->
+<!--                        City: <input type="text"  id="city" name="city" placeholder="city"><br>-->
+<!--                        adress: <input type="text"  id="adress" name="adress" placeholder="adress"><br>-->
+<!--&lt;!&ndash;                        createdDate: <input type="date"  id="createdDate" name="createdDate" placeholder="createdDate"><br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <input type="hidden" class="form-control" id="accountStatus" name="Status" th:value="AKTYWNE">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input type="hidden" class="form-control" id="type" name="type" th:value="USER">&ndash;&gt;-->
+<!--                    <button id="button"  type="submit" >Sign Up</button>-->
+<!--                    <button>  <a th:href="@{/login}">Log in</a></button>-->
+<!--                </form>-->
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles">
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="container">
+    <div style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px;">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-user"></i> Sign Up</div>
+            <div class="card-block" style="padding: 24px;">
+                <form th:action="@{/signup}" method="post">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="email">Email</label> <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label> <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">state</label> <input type="text" class="form-control" id="state" name="state" placeholder="state">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label> <input type="text" class="form-control" id="city" name="city" placeholder="city">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adress">Adress</label> <input type="text" class="form-control" id="adress" name="adress" placeholder="adress ">
+                        </div>
+
+                        <div class="form-actions" style="margin-top: 12px;">
+                            <button type="submit" class="btn btn-success">Sign Up</button>
+                        </div>
+
+
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

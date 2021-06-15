@@ -1,0 +1,40 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles">
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="container">
+    <div style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px;">
+        <div class="card">
+            <div class="card-block" style="padding: 24px;">
+                <form th:action="@{/admin/ban}" method="post">
+                    <fieldset>
+
+
+                        <div class="form-group">
+                            <label for="state">Użytkownik do zbanowania : </label> <input type="text" class="form-control" id="state" name="state" placeholder="">
+                        </div>
+
+                        <div class="form-actions" style="margin-top: 12px;"><button  type="submit" class="btn btn-success">Usuń użytkownika</button>
+                    </fieldset>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

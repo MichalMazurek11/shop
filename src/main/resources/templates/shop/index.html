@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="container">
+    <h1 class="display-5"></h1>
+
+<!--    <span th:text="${#authentication.getName()}"></span>-->
+
+<!--    <div th:if="${currentuser} == ${#authentication.getName()}"> TAKI SAM </div>-->
+<!--    <div th:if="${currentuser} != ${#authentication.getName()}"> NIE TAKI SAM</div>-->
+<!--    <br>-->
+    <form th:action="@{/shop/itemName}"  method="get">
+        <br>
+        <input type="text"  id="itemName" name="itemName" >
+        <button id="button"  type="submit" class="btn btn-primary">Szukaj</button>
+    </form>
+
+<br>
+    <div class="d-flex justify-content-start pb-sm-1">
+        <a class="list-group-item  pb-sm-1" href="#" th:href="@{/shop/items}">All Product</a>
+        <a class="list-group-item  pb-sm-1"	th:each="category : ${categoryList}"
+           th:text="${category.categoryName}" href="#" th:href="@{'/shop/getProducts/' + ${category.categoryId}}"></a>
+    </div>
+
+</div>
+
+<table class="table my-3">
+    <thead>
+    <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${itemList}">
+        <td><img th:src="${item.image}" width="100px"></td>
+        <td th:text="${item.itemName}"></td>
+        <td th:text="${item.itemPrice}"></td>
+        <td>
+            <!--<a href="#" th:href="@{'/shop/updateItem/'+ ${item.itemId}}" class="btn btn-danger">Update</a>-->
+            <a href="#" th:href="@{'/shop/purchase/'+ ${item.itemId}}" class="btn btn-primary">Kup</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!--+ ${item.itemId}-->
+
+
+
+
+</div>
+</body>
+</html>
